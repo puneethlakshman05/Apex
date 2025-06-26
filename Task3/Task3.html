@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Quiz and Image Carousel
+        </title>
+        <link rel="stylesheet" href="Task3.css">
+    </head>
+    <body>
+        <div class="nav-container">
+            <nav class="navbar">
+                <div class="logo"><p>Quiz,Image Carousel & Joke Generator</p></div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <section id="quiz-container" >
+                <h1 style="text-align: center;">Quiz</h1>
+               <div id="question-container" > </div>
+               <div>
+                <button id="prev"class="prev-btn" >Previous</button>
+                <button id="next" class="next-btn" >Next</button><br>
+                <button id="submit" class="submit-btn">Submit</button>
+               </div>
+               <div id="result"></div>
+            </section>
+            <section class="image-carousel">
+                <h1 style="text-align: center;">Image Carousel</h1>
+                <div class="carousel">
+                    <img class="carousel-image" src="image1.jpg" alt="image" >     
+                    <img class="carousel-image" src="image2.jpg" alt="image" > 
+                    <img class="carousel-image" src="image3.jpg" alt="image" >  
+                      <img class="carousel-image" src="image4.jpg" alt="image" >         
+                    <button class="carousel-btn prev">⟨</button>
+                    <button class="carousel-btn next">⟩</button>
+                 </div>
+            </section>
+        </div>
+
+
+        <div class="joke-container">
+            <h1 class="joke-head">Random Joke Generator</h1>
+            <h3>Click the below button to get a Random joke </h3>
+            <div id="joke"></div>
+            <button id="jokebtn" class="jokebtn">Get a Joke</button>
+
+        </div>
+        <div class="footer-container">
+            <footer>
+                <p>&copy;All rights reserved</p>
+            </footer>
+        </div>
+        <script src="task3.js"></script>
+    </body>
+
+</html>
