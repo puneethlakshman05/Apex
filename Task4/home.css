@@ -1,0 +1,283 @@
+ html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+ .nav{
+    padding: 0;
+    margin: 0;
+    top: 0;
+    position:fixed ;
+    z-index: 1;
+    width: 100%;
+} 
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid rgb(194, 187, 190);
+    height: 60px;
+    background-color: white;
+   
+   
+}
+.logo{
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
+    color: darkslategrey;
+    margin-left: 20px;
+}
+ul{
+    list-style-type: none;
+  
+}
+li{
+   
+    display: inline-block;
+    margin-right: 20px;
+
+}
+a{
+     text-decoration: none;
+     color: black;
+     font-size: 18px;
+     margin-right: 10px;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     font-weight: bold;
+     position: relative;
+}
+a:hover{
+    color: rgb(250, 4, 99); 
+    cursor: pointer;
+  } 
+a::after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease-in-out;
+    background-color: rgb(250, 4, 99);
+}
+a:hover::after{
+    width: 100%;
+}
+body {
+    margin: 0;
+    padding-top: 60px; /* same as navbar height */
+}
+
+.about{
+    background-color: rgb(235, 194, 241);
+    display: block;
+    margin: auto;
+    margin-top: 45px;
+    text-align: center;
+    width: 600px;
+    padding: 30px;
+    border-radius: 7px;
+    height: 150px;
+    box-shadow: inset #000000;
+    position: relative;
+    border: 2px solid purple;
+
+}
+.about h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+}
+.about p{
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      line-height: 0.7cm;
+}
+
+
+.skills {
+    background-color: #f9e6e6;
+    width: 600px;
+    margin: 40px auto 0 auto;
+    padding: 30px;
+    border-radius: 7px;
+    text-align: center;
+    border: 2px solid #e75480;
+}
+.skills h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #b30059;
+}
+.skills ul {
+    list-style-type: none;
+    padding: 0;
+}
+.skills li {
+    display: inline-block;
+    margin: 10px 15px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #fff;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: 1px solid #e75480;
+}
+
+
+.contact{
+    background-color: rgb(170, 193, 243);
+    width: 400px;
+    height:580px;
+       display: flex;
+    align-items:start; 
+    flex-direction: column;
+    text-align: center;
+    margin: auto; 
+    margin-top: 40px;
+    border-radius: 10px;
+    padding: 20px;
+   margin-bottom: 20px;
+   border: 2px solid rgb(0, 162, 255);
+}
+
+.contact input{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    height: 50px;
+    padding-left: 15px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    width: 350px;
+    background-color: rgb(226, 229, 231);
+    transition: color 0.3s ease-in-out;
+}
+.contact textarea{
+    width :390px;
+    border: none;
+    outline: none;
+    height: 200px;
+    font-size: 15px;
+    background-color: rgb(225, 227, 230);
+    border-radius:10px ;
+
+    padding-left: 15px;
+    padding-top: 10px;
+}
+.contact textarea:focus{
+        border: 2px solid rgb(236, 12, 87);
+}
+.contact h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+    color:rgb(99, 3, 99);
+    margin-bottom: 10px;
+    }
+    .contact hr{
+        width: 100px;
+        margin-top: 0;
+        padding: 0;
+        border:2px solid rgb(73, 3, 73);
+        border-radius: 10px;
+    }
+
+.contact input:focus{
+    content: " ";
+    border:2px solid rgb(250, 4, 119);
+    transition: width o.3s ease-in-out;
+  
+}
+.btn{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.btn button{
+    border: none;
+    outline: none;
+    padding: 15px 35px;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: crimson;
+    color: aliceblue;
+    cursor: pointer;
+}
+.btn button:hover{
+    background-color: rgb(56, 2, 13);
+    color: white;
+}
+.err p {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    height: auto;
+  }
+
+  .logo {
+    margin-left: 10px;
+    font-size: 24px;
+  }
+
+  ul {
+    padding-left: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  li {
+    margin: 5px 0;
+  }
+
+  .about {
+    width: 90%;
+    padding: 20px;
+    height: auto;
+  }
+
+  .about p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .contact {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .contact input,
+  .contact textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .btn button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .contact h1 {
+    font-size: 24px;
+  }
+
+  .nav {
+    z-index: 1000;
+  }
+}
+
+.about,
+.skills,
+.contact {
+    margin-top: 80px; 
+}
+

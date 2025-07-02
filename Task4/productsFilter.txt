@@ -1,0 +1,45 @@
+const handleCategoryFilter=() =>{
+    // e.preventDefault();
+
+let categorySelected=document.getElementById("categories").value;
+console.log(categorySelected)
+
+const filteredProducts=categorySelected
+        ? products.filter(product => product.category===categorySelected)
+        :products;
+
+productDisplay(filteredProducts);
+    };
+
+const handlePriceFilter = ()=>{
+    let filterPrice=document.getElementById("pricing").value;
+    console.log(filterPrice);
+    if(filterPrice==="low-to-high"){
+        products.sort((a, b) => {
+  return parseInt(a.price.replace(/[^\d]/g, '')) - parseInt(b.price.replace(/[^\d]/g, ''));
+});
+    }
+
+    else if(filterPrice==="high-to-low"){
+        products.sort((a, b) => {
+  return parseInt(b.price.replace(/[^\d]/g, '')) - parseInt(a.price.replace(/[^\d]/g, ''));
+});
+    }
+        productDisplay(); 
+    }
+
+const handleRatingFilter = () =>{
+    let filterRating=document.getElementById("rating").value;
+    console.log(filterRating);
+    if(filterRating==="low-to-high"){
+        products.sort((a,b) =>{
+            return a.rating - b.rating;
+        })
+    }
+    else if(filterRating==="high-to-low"){
+        products.sort((a,b) =>{
+            return b.rating - a.rating;
+        })
+    }
+    productDisplay();
+}

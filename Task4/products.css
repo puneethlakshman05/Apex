@@ -1,0 +1,152 @@
+ .nav{
+    padding: 0;
+    margin: 0;
+    top: 0;
+    position:fixed ;
+    z-index: 1;
+    width: 100%;
+} 
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid rgb(194, 187, 190);
+    height: 60px;
+    background-color: white;
+   
+   
+}
+ul{
+    list-style-type: none;
+  
+}
+li{
+   
+    display: inline-block;
+    margin-right: 20px;
+
+}
+a{
+     text-decoration: none;
+     color: black;
+     font-size: 18px;
+     margin-right: 10px;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     font-weight: bold;
+     position: relative;
+}
+a:hover{
+    color: rgb(250, 4, 99); 
+    cursor: pointer;
+  } 
+a::after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease-in-out;
+    background-color: rgb(250, 4, 99);
+}
+a:hover::after{
+    width: 100%;
+}
+.logo{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 40px;
+}
+.head{
+    margin-top: 80px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: darkslategray;
+}
+.filters{
+    width: 400px;
+    margin-left: 60px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+
+}
+select{
+    border: 2px solid maroon;
+    outline: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+option{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+#product-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+    place-content: center space-evenly;
+    gap: 30px;
+   
+}
+.product-card{
+     border: 2px solid purple;
+     padding: 15px;
+     line-height: 1;
+       width: 200px;
+  text-align: center;
+}
+@media (max-width: 1200px) {
+  #product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  #product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .filters {
+    flex-direction: column;
+    width: 90%;
+    margin: 20px auto;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  #product-container {
+    grid-template-columns: 1fr;
+  }
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  .logo {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  li {
+    margin: 8px 0;
+  }
+  .filters {
+    flex-direction: column;
+    width: 90%;
+    margin: 20px auto;
+  }
+  select {
+    width: 100%;
+  }
+}
