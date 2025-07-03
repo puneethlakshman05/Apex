@@ -1,4 +1,3 @@
-
 const productContainer = document.getElementById("product-container");
 
 const products =[
@@ -107,43 +106,63 @@ const products =[
 
 ];
 
-const productDisplay = (productList=products)=>{
-      productContainer.innerHTML = "";
-productList.forEach(product =>
-{
-
-    const productCard=document.createElement("div");
-    productCard.className="product-card";
-
-    const img = document.createElement("img");
-    img.src=product.image;
-    img.alt=product.name;
-    img.width=200;
-    img.height=150;
-    img.style.margin="10px"
-
-
-   // Add details
- const details = document.createElement("div");
- details.innerHTML=`
-        <h3>${product.name}</h3>
-        <p>Price: ${product.price}</p>
-        <p> Quantity: ${product.quantity}</p>
-        <p>Ratings: ${product.rating}</>`;
-        // const image=imageContainer.appendChild("img");
-
-
-  // Append elements to the card
-  productCard.appendChild(img);
-  productCard.appendChild(details);
-//   productCard.appendChild(price);
-//   productCard.appendChild(quantity);
-//   productCard.appendChild(rating);
-
-  // Append card to container
-  productContainer.appendChild(productCard);
+// Helper: Get cart from localStorage
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
 }
-);
+
+// Helper: Save cart to localStorage
+function saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Add to cart function
+function addToCart(product) {
+    let cart = getCart();
+    // Check if product already in cart
+    const index = cart.findIndex(item => item.name === product.name);
+    if (index > -1) {
+        cart[index].cartQuantity = (cart[index].cartQuantity || 1) + 1;
+    } else {
+        cart.push({ ...product, cartQuantity: 1 });
+    }
+    saveCart(cart);
+    alert(`${product.name} added to cart!`);
+}
+
+const productDisplay = (productList=products)=>{
+    productContainer.innerHTML = "";
+    productList.forEach(product => {
+        const productCard=document.createElement("div");
+        productCard.className="product-card";
+
+        const img = document.createElement("img");
+        img.src=product.image;
+        img.alt=product.name;
+        img.width=200;
+        img.height=150;
+        img.style.margin="10px";
+
+        const details = document.createElement("div");
+        details.innerHTML=`
+            <h3>${product.name}</h3>
+            <p>Price: ${product.price}</p>
+            <p> Quantity: ${product.quantity}</p>
+            <p>Ratings: ${product.rating}</p>
+        `;
+
+        // Add to Cart button
+        const cartBtn = document.createElement("button");
+        cartBtn.textContent = "Add to Cart";
+        cartBtn.style.marginTop = "10px";
+        cartBtn.onclick = () => addToCart(product);
+
+        productCard.appendChild(img);
+        productCard.appendChild(details);
+        productCard.appendChild(cartBtn);
+
+        productContainer.appendChild(productCard);
+    });
 }
 const applyFilters = () => {
     const category = document.getElementById("categories").value;
@@ -154,12 +173,12 @@ const applyFilters = () => {
     let filtered = [...products];
     
 
-    //  Filter by category if selected
+    // 1. Filter by category if selected
     if (category) {
         filtered = filtered.filter(p => p.category === category);
     }
 
-    //  Sort by price
+    // 2. Sort by price
     if (priceOrder === "low-to-high") {
         filtered.sort((a, b) =>
             parseInt(a.price.replace(/[^\d]/g, '')) - parseInt(b.price.replace(/[^\d]/g, ''))
@@ -170,14 +189,14 @@ const applyFilters = () => {
         );
     }
 
-    //  Sort by rating
+    // 3. Sort by rating
     if (ratingOrder === "low-to-high") {
         filtered.sort((a, b) => a.rating - b.rating);
     } else if (ratingOrder === "high-to-low") {
         filtered.sort((a, b) => b.rating - a.rating);
     }
 
-   
+    // Final display
     productDisplay(filtered);
 };
 

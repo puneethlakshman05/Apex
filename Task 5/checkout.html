@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Place Order</title>
+
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+    <div class="nav">
+        <nav class="navbar">
+            <h1 class="logo">Shopnow</h1>
+            <ul>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="order-container">
+        <h2>Place Your Order</h2>
+        <form class="order-form" id="order-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+            <label for="address">Address</label>
+            <textarea id="address" rows="3" required></textarea>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required pattern="[0-9]{10}">
+            <button type="submit">Place Order</button>
+        </form>
+        <div class="order-success" id="order-success"></div>
+    </div>
+    <script>
+        document.getElementById('order-form').onsubmit = function(e) {
+            e.preventDefault();
+            localStorage.removeItem('cart');
+            document.getElementById('order-success').textContent = "Order placed successfully! Thank you for shopping with us.";
+            this.reset();
+        }
+    </script>
+</body>
+</html>

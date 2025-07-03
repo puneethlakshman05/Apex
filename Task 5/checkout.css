@@ -1,0 +1,119 @@
+
+ .nav{
+    padding: 0;
+    margin: 0;
+    top: 0;
+    position:fixed ;
+    z-index: 1;
+    width: 100%;
+} 
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid rgb(194, 187, 190);
+    height: 60px;
+    background-color: white;
+   
+   
+}
+ul{
+    list-style-type: none;
+  
+}
+li{
+   
+    display: inline-block;
+    margin-right: 20px;
+
+}
+a{
+     text-decoration: none;
+     color: black;
+     font-size: 18px;
+     margin-right: 10px;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     font-weight: bold;
+     position: relative;
+}
+a:hover{
+    color: rgb(250, 4, 99); 
+    cursor: pointer;
+  } 
+a::after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease-in-out;
+    background-color: rgb(250, 4, 99);
+}
+a:hover::after{
+    width: 100%;
+}
+.logo{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 40px;}
+body {
+    background: #f8f9fa;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.order-container {
+    max-width: 500px;
+    margin: 120px auto 40px;
+    background: #fff;
+    border: 2px solid #e63600;
+    border-radius: 10px;
+    padding: 36px 30px;
+    box-shadow: 0 2px 12px rgba(230,0,115,0.07);
+}
+.order-container h2 {
+    text-align: center;
+    color: #3a3839;
+    margin-bottom: 18px;
+}
+.order-form label {
+    display: block;
+    margin: 18px 0 6px;
+    color: #333;
+    font-weight: 500;
+}
+.order-form input, .order-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1.5px solid #e64100;
+    font-size: 1em;
+    background: #f9f9f9;
+    margin-bottom: 8px;
+    transition: border 0.2s;
+}
+.order-form input:focus, .order-form textarea:focus {
+    border-color: #a8004f;
+}
+.order-form button {
+    margin-top: 24px;
+    width: 100%;
+    padding: 12px;
+    background: #e64100;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.order-form button:hover {
+    background: #333232;
+    color: #f9f9f9;
+}
+.order-success {
+    text-align: center;
+    color: green;
+    margin-top: 24px;
+    font-size: 1.1em;
+}
